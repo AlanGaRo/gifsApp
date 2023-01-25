@@ -1,0 +1,54 @@
+<header>
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+          <span>Busquedas realizadas</span>
+        </a>
+        <a *ngFor="let item of historial"
+          (click)="buscar( item )"
+          href="#" 
+          class="list-group-item list-group-item-action py-2 ripple">
+          <i class="fas fa-angle-double-right fa-fw me-3"></i>
+          <span>
+            {{ item | titlecase }}
+          </span>
+        </a>
+        <a 
+          *ngIf="historial"
+          (click)="borrarHistorial( )"
+          href="#" 
+          class="list-group-item list-group-item-action py-2 ripple" 
+          aria-current="true">
+          <span>Borrar historial</span>
+        </a>
+      </div>
+    </div>
+    <div class="card text-white bg-secondary m-2 position-absolute bottom-0 end-0" style="max-width: 18rem;">
+      <div class="card-header">GifsApp</div>
+      <div class="card-body">
+        <h5 class="card-title">Description</h5>
+        <p class="card-text text-justify">Esta aplicación se desarrolló utilizando angular 14, MDBootstrap y Animate.css. Utiliza una Api de imágenes (<a target="_blank" href="https://giphy.com/">https://giphy.com/</a>) que es consumida a través de HttpClientModule. </p>
+      </div>
+    </div>
+  </nav>
+
+  <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+        aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <a class="navbar-brand" href="#">
+        <h2 class="title text-light">GifsApp</h2>
+      </a>
+
+      <app-busqueda></app-busqueda>
+
+      <ul class="navbar-nav ms-auto d-flex flex-row">
+        <li></li>
+      </ul>
+    </div>
+  </nav>
+</header>
